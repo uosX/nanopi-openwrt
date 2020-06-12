@@ -1,4 +1,4 @@
-name: r2s original Build 原版friendlywrt
+name: r2s_original
 
 on:
   push:
@@ -7,6 +7,9 @@ on:
     paths: 
       - 'r2s.config.seed'
       - '.github/workflows/r2s_original.yml'
+        
+  schedule:
+    - cron: '0 15 */5 * *'
 
 jobs:
 
@@ -67,12 +70,14 @@ jobs:
       - name: Zip Files
         run: |
           gzip friendlywrt-rk3328/out/*.img
+          
       - name: Assemble Artifact
         run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
           mv friendlywrt-rk3328/out/*img* ./artifact/
           cp friendlywrt-rk3328/friendlywrt/.config ./artifact/
+          
       - name: Upload Artifact
         uses: actions/upload-artifact@master
         with:
