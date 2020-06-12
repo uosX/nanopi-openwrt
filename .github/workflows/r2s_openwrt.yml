@@ -1,11 +1,11 @@
-name: r2s openwrt
+name: r2s_openwrt
 
 on:
   push:
     branches:
       - master
     paths:
-      - '.github/workflows/r2slean.yml'
+      - '.github/workflows/r2s_openwrt.yml'
   schedule:
     - cron: '0 15 */5 * *'
 
@@ -14,8 +14,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    if: github.repository == 'klever1988/nanopi-openwrt'
-
+    
     steps:
 
       - name: Checkout
