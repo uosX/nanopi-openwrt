@@ -85,8 +85,11 @@ jobs:
           #cd ../../../
           rm -rf luci-theme-argon
           git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
-          git clone https://github.com/awesome-openwrt/luci-app-flowoffload
+          rm -rf luci-app-flowoffload
+          git clone https://github.com/awesome-openwrt/luci-app-flowoffload.git
+          rm -rf luci-app-aliddns
           git clone https://github.com/honwen/luci-app-aliddns.git
+          
           cd ../../
           git apply ../../enable_autocore.diff
           #git apply ../../fix_cpufreq.diff
