@@ -126,5 +126,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@master
         with:
-          name: lede
-          path: /home/runner/artifact
+          name: friendlywrt-rk3328
+          path: ./artifact/
